@@ -60,6 +60,33 @@
         .cta a:hover {
             background-color: #34495e;
         }
+        form {
+            max-width: 600px;
+            margin: 30px auto;
+            display: flex;
+            flex-direction: column;
+        }
+        form p {
+            margin-bottom: 15px;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #2c3e50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #34495e;
+        }
         footer {
             background-color: #f4f4f4;
             text-align: center;
@@ -105,6 +132,31 @@
         <a href="#contact">Contact Us</a>
         <a href="#work">See Our Work</a>
     </div>
+</section>
+
+<section id="contact">
+    <h2>Contact Us</h2>
+    <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="contact">
+        <p style="display:none;">
+            <label>Don’t fill this out: <input name="bot-field"></label>
+        </p>
+        <p>
+            <label>Your Name:<br>
+            <input type="text" name="name" required></label>
+        </p>
+        <p>
+            <label>Your Email:<br>
+            <input type="email" name="email" required></label>
+        </p>
+        <p>
+            <label>Message:<br>
+            <textarea name="message" rows="6" required></textarea></label>
+        </p>
+        <p>
+            <button type="submit">Send</button>
+        </p>
+    </form>
 </section>
 
 <footer>
