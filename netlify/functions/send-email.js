@@ -29,7 +29,7 @@ exports.handler = async (event, context) => {
           },
           To: [
             {
-              Email: 'web.cmdt@gmail.com',   // Replace with your destination email
+              Email: 'balkhihamza@gmail.com',   // Replace with your destination email
               Name: 'You',
             },
           ],
