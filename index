@@ -13,7 +13,7 @@
             line-height: 1.6;
         }
         header {
-            background: url('https://source.unsplash.com/1600x900/?technology,industry') no-repeat center center/cover;
+            background: url('/nasa-Q1p7bh3SHj8-unsplash.jpg') no-repeat center center/cover;
             color: white;
             height: 80vh;
             display: flex;
