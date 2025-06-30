@@ -111,15 +111,12 @@
 
 <section id="contact">
   <h2>Contact Us</h2>
-  <form method="POST" action="/api/send-email">
-    <p><label>Your Name:<br>
-      <input type="text" name="name" required></label></p>
-    <p><label>Your Email:<br>
-      <input type="email" name="email" required></label></p>
-    <p><label>Your Message:<br>
-      <textarea name="message" rows="6" required></textarea></label></p>
-    <p><button type="submit">Send</button></p>
-  </form>
+ <form method="POST" action="/.netlify/functions/send-email">
+  <p><label>Your Name:<br><input type="text" name="name" required></label></p>
+  <p><label>Your Email:<br><input type="email" name="email" required></label></p>
+  <p><label>Your Message:<br><textarea name="message" rows="5" required></textarea></label></p>
+  <p><button type="submit">Send</button></p>
+</form>
 </section>
 
 <footer>
