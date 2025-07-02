@@ -111,12 +111,16 @@
 
 <section id="contact">
   <h2>Contact Us</h2>
- <form method="POST" action="/.netlify/functions/send-email">
-  <p><label>Your Name:<br><input type="text" name="name" required></label></p>
-  <p><label>Your Email:<br><input type="email" name="email" required></label></p>
-  <p><label>Your Message:<br><textarea name="message" rows="5" required></textarea></label></p>
-  <p><button type="submit">Send</button></p>
-</form>
+  <form id="contactForm" method="POST" action="/.netlify/functions/send-email">
+    <p><label>Your Name:<br>
+      <input type="text" name="name" required></label></p>
+    <p><label>Your Email:<br>
+      <input type="email" name="email" required></label></p>
+    <p><label>Your Message:<br>
+      <textarea name="message" rows="6" required></textarea></label></p>
+    <p><button type="submit">Send</button></p>
+  </form>
+  <div id="formMessage" style="margin-top:10px;"></div>
 </section>
 
 <footer>
@@ -124,4 +128,35 @@
 </footer>
 
 </body>
+
+<script>
+document.getElementById('contactForm').addEventListener('submit', async function(event) {
+  event.preventDefault(); // Stop the default form submit (no page reload)
+
+  const form = event.target;
+  const formData = new FormData(form);
+  const messageDiv = document.getElementById('formMessage');
+
+  try {
+    const response = await fetch(form.action, {
+      method: 'POST',
+      body: formData
+    });
+
+    if (response.ok) {
+      messageDiv.style.color = 'green';
+      messageDiv.textContent = '✅ Message received! Thank you for reaching out.';
+      form.reset(); // Clear form fields
+    } else {
+      messageDiv.style.color = 'red';
+      messageDiv.textContent = '❌ Something went wrong. Please try again later.';
+    }
+  } catch (error) {
+    console.error('Form submission error:', error);
+    messageDiv.style.color = 'red';
+    messageDiv.textContent = '❌ Error sending your message. Please check your internet connection and try again.';
+  }
+});
+</script>
+
 </html>
